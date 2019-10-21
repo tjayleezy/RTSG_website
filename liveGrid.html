@@ -1,0 +1,330 @@
+<!-- All programming courtesy of W3 Schools unless otherwise stated -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<title>SGTB Live Grid</title>
+</head>
+
+<script src="js/updateAlert.js"></script>
+<script src="js/changeImage.js"></script>
+
+
+<script>
+    function catcher(){
+        // call the updateProfile function every 2 seconds
+        // uses the setInterval function built into JavaScript
+        var myVar = setInterval(updateProfile, 2000);
+    }
+    function updateProfile(){
+        var xmlhttp;
+        // Create an object to interface with the server
+        // IF triggered if it's any modern browser, ELSE otherwise.
+        if (window.XMLHttpRequest){
+            xmlhttp=new XMLHttpRequest();
+        }else{
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // This code will be executed each time the readyState of the object changes
+        xmlhttp.onreadystatechange = function(){
+            // readyState 4 indicates response received and processed
+            if(this.readyState == 4){
+                
+                // create an object using JSON.parse from the response text
+                // response text must be in JSON format
+                var myJSON = this.responseText;
+                var myObj = JSON.parse(myJSON);
+                
+                //Table IDs are located and the signals based on their location in the file are
+                //appended on the table
+                
+                document.getElementById("Current_Sadie1").innerHTML=myObj["b84319e0-b191-11e6-a0b8-001c23c619e5"]+'A';
+                document.getElementById("Voltage_Sadie1").innerHTML=myObj["b8413f53-b191-11e6-a0b8-001c23c619e5"]+'V';
+                document.getElementById("Frequency_Sadie1").innerHTML=myObj["b83a19bd-b191-11e6-a0b8-001c23c619e5"]+'Hz';
+            //    document.getElementById("Power factor_Sadie1").innerHTML=myObj[""];
+                
+                document.getElementById("Current_Sadie2").innerHTML=myObj["4a0ab63e-b196-11e6-a0b8-001c23c619e5"]+'A';
+                document.getElementById("Voltage_Sadie2").innerHTML=myObj["4a086cb7-b196-11e6-a0b8-001c23c619e5"]+'V';
+                document.getElementById("Frequency_Sadie2").innerHTML=myObj["49feadfa-b196-11e6-a0b8-001c23c619e5"]+'Hz';
+            //    document.getElementById("Power factor_Sadie2").innerHTML=myObj[""];
+                
+                document.getElementById("Current_Tucker").innerHTML=myObj["c4eae0a2-b196-11e6-a0b8-001c23c619e5"]+'A';
+                document.getElementById("Voltage_Tucker").innerHTML=myObj["c4e90889-b196-11e6-a0b8-001c23c619e5"]+'V';
+                document.getElementById("Frequency_Tucker").innerHTML=myObj["c4d9c06d-b196-11e6-a0b8-001c23c619e5"]+'Hz';
+            //    document.getElementById("Power factor_Tucker").innerHTML=myObj[""];
+                
+                document.getElementById("Current_Zeus").innerHTML=myObj["f4db6c35-b196-11e6-a0b8-001c23c619e5"]+'A';
+                document.getElementById("Voltage_Zeus").innerHTML=myObj["b9e74913-8eab-11e8-a305-001c23c619e5"]+'V';
+                document.getElementById("Frequency_Zeus").innerHTML=myObj["f4d3603f-b196-11e6-a0b8-001c23c619e5"]+'Hz';
+            //    document.getElementById("Power factor_Zeus").innerHTML=myObj[""];
+                
+                document.getElementById("Current_Adam").innerHTML=myObj["58b8918c-b197-11e6-a0b8-001c23c619e5"]+'A';
+                document.getElementById("Voltage_Adam").innerHTML=myObj["eb63e8b6-8f42-11e8-a305-001c23c619e5"]+'V';
+                document.getElementById("Frequency_Adam").innerHTML=myObj["58acafbc-b197-11e6-a0b8-001c23c619e5"]+'Hz';
+            //    document.getElementById("Power factor_Adam").innerHTML=myObj[""];
+            
+                document.getElementById("Current_Duke").innerHTML=myObj["eb66ac7a-8f42-11e8-a305-001c23c619e5"]+'A';
+                document.getElementById("Voltage_Duke").innerHTML=myObj["59a967b5-8e87-11e8-ac5c-001c23c619e5"]+'V';
+                document.getElementById("Frequency_Duke").innerHTML=myObj["eb594b15-8f42-11e8-a305-001c23c619e5"]+'Hz';
+            //    document.getElementById("Power factor_Duke").innerHTML=myObj[""];
+            
+                document.getElementById("Current_Murphy").innerHTML=myObj["b9ecd956-8eab-11e8-a305-001c23c619e5"]+'A';
+                document.getElementById("Voltage_Murphy").innerHTML=myObj["59a756e7-8e87-11e8-ac5c-001c23c619e5"]+'V';
+                document.getElementById("Frequency_Murphy").innerHTML=myObj["599ce93b-8e87-11e8-ac5c-001c23c619e5"]+'Hz';
+            //    document.getElementById("Power factor_Murphy").innerHTML=myObj[""];
+            
+            //    document.getElementById("Current_eight").innerHTML=myObj[""];
+            //    document.getElementById("Voltage_eight").innerHTML=myObj[""];
+            //    document.getElementById("Frequency_eight").innerHTML=myObj[""];
+            //    document.getElementById("Power factor_eight").innerHTML=myObj[""];
+                        
+                var canvas = document.getElementById('liveCanvas');
+                var ctx = canvas.getContext('2d');
+                ctx.clearRect(0,0, canvas.width, canvas.height);
+                ctx.drawImage(document.getElementById('liveImg'), 0, 0, canvas.width, canvas.height); //reposition canvas and image on main body
+                ctx.font = '16px Times New Roman';
+                ctx.textAlign = 'right';
+                
+                //1st row voltage 
+                ctx.fillText(myObj["b8413f53-b191-11e6-a0b8-001c23c619e5"].toFixed(2)+' V',287,247); //Sadie1
+                ctx.fillText(myObj["b9e901d1-8eab-11e8-a305-001c23c619e5"].toFixed(2)+' V',750,247); //Tucker
+                ctx.fillText(myObj["b9e74913-8eab-11e8-a305-001c23c619e5"].toFixed(2)+' V',1245,247); //Zeus
+
+                //2nd row voltage
+                ctx.fillText(myObj["f4d95912-b196-11e6-a0b8-001c23c619e5"].toFixed(2)+' V',287,525); //Sadie2
+                ctx.fillText(myObj["59a967b5-8e87-11e8-ac5c-001c23c619e5"].toFixed(2)+' V',750,525); //Duke
+                ctx.fillText(myObj["59a756e7-8e87-11e8-ac5c-001c23c619e5"].toFixed(2)+' V',1245,525); //Murphy
+
+                //Middle section voltage
+                ctx.fillText(myObj["eb63e8b6-8f42-11e8-a305-001c23c619e5"].toFixed(2)+' V',825,350); //Adam
+
+                //Frequency
+                ctx.fillText("Frequency: "+myObj["b83a19bd-b191-11e6-a0b8-001c23c619e5"].toFixed(2)+' Hz',175,400);
+
+				//Mapped currents
+                ctx.fillText(myObj["b84319e0-b191-11e6-a0b8-001c23c619e5"].toFixed(2)+' A',520,75);//Current btwn Sadie 1 and Tucker
+                ctx.fillText(myObj["4a0ab63e-b196-11e6-a0b8-001c23c619e5"].toFixed(2)+' A',495,255); //Sadie1 to Duke 
+                ctx.fillText(myObj["f4db6c35-b196-11e6-a0b8-001c23c619e5"].toFixed(2)+' A',495,545);//sadie2 to tucker
+                ctx.fillText(myObj["58b8918c-b197-11e6-a0b8-001c23c619e5"].toFixed(2)+' A',520,695);//Sadie2 to Duke
+                ctx.fillText(myObj["eb66ac7a-8f42-11e8-a305-001c23c619e5"].toFixed(2)+' A',930,575); //Duke to Adam
+                ctx.fillText(myObj["eb68d0c9-8f42-11e8-a305-001c23c619e5"].toFixed(2)+' A',915,265); //Adam to Tucker ***Need to update*** need to enable second PMU in SEL6 for this measurement.
+                ctx.fillText(myObj["b9eb0a8c-8eab-11e8-a305-001c23c619e5"].toFixed(2)+' A',1000,75); //Tucker to Zeus ***Need to check***
+                ctx.fillText(myObj["b9ecd956-8eab-11e8-a305-001c23c619e5"].toFixed(2)+' A',1155,385); //Zeus to Murphy
+                ctx.fillText(myObj["59ae35d3-8e87-11e8-ac5c-001c23c619e5"].toFixed(2)+' A',1000,695); //Duke to Murphy
+            
+				//Mapped voltage phase angles
+                ctx.fillText(myObj["b841bbb7-b191-11e6-a0b8-001c23c619e5"].toFixed(2)+'°',277,277);//VPA Sadie1
+                ctx.fillText(myObj["b9e99156-8eab-11e8-a305-001c23c619e5"].toFixed(2)+'°',740,277); //Tucker 
+                ctx.fillText(myObj["b9e7b382-8eab-11e8-a305-001c23c619e5"].toFixed(2)+'°',1235,277);//Zeus
+                ctx.fillText(myObj["f4da1185-b196-11e6-a0b8-001c23c619e5"].toFixed(2)+'°',277,555);//Sadie2
+                ctx.fillText(myObj["59aa1eba-8e87-11e8-ac5c-001c23c619e5"].toFixed(2)+'°',740,555); //Duke
+                ctx.fillText(myObj["59a7d0c0-8e87-11e8-ac5c-001c23c619e5"].toFixed(2)+'°',1235,555); //Murphy
+
+				//Mapped current phase angles
+                ctx.fillText(myObj["b84391dc-b191-11e6-a0b8-001c23c619e5"].toFixed(2)+'°',520,105);//CPA btwn Sadie 1 and Tucker
+                ctx.fillText(myObj["4a0b5530-b196-11e6-a0b8-001c23c619e5"].toFixed(2)+'°',500,280); //Sadie1 to Duke 
+                ctx.fillText(myObj["f4dd92fc-b196-11e6-a0b8-001c23c619e5"].toFixed(2)+'°',480,570);//sadie2 to tucker
+                ctx.fillText(myObj["58b8fcf6-b197-11e6-a0b8-001c23c619e5"].toFixed(2)+'°',520,725);//Sadie2 to Duke
+                ctx.fillText(myObj["b9eb79d7-8eab-11e8-a305-001c23c619e5"].toFixed(2)+'°',1000,105); //Tucker to Zeus ***Need to check***
+                ctx.fillText(myObj["b9ecd956-8eab-11e8-a305-001c23c619e5"].toFixed(2)+'°',1155,415); //Zeus to Murphy
+                
+			}
+        }
+
+        // Build the GET request to the server
+        xmlhttp.open("GET","JSONtest.txt",true);
+        xmlhttp.send();
+    }
+
+		function draw(){
+		var canvas = document.getElementById('liveCanvas');
+		var ctx = canvas.getContext('2d');
+		ctx.drawImage(document.getElementById('liveImg'), 0, 0, canvas.width, canvas.height);
+    }
+    
+</script>
+
+
+<body onload="catcher(); draw(); updateAlert(); changeImage();">
+<header>
+	<h1>
+		<img src="images/eecs.gif" class="left" alt="EECS Logo"/>
+		USMA Smart Grid Test Bed
+		<img src="images/eecs.gif" class="right" alt="EECS Logo"/>
+	</h1>
+	<script> changeImage </script>
+</header>
+
+<nav>
+	<a href="home.html">Home</a>
+	<a href="liveGrid.html" class="active">Live Grid</a>
+	<a href="wideAreaControl.html">Wide Area Control</a>
+	<a href="historicalDataGraph.html">Historical Data Graph</a>
+	<a href="aboutUs.html">About Us</a>
+</nav>
+
+<section class="s1">
+	<canvas id="liveCanvas" width="1400px" height="800px">Canvas not supported</canvas>
+	<img src="images/cut_topology.jpg" alt="Live Grid Topology" id="liveImg" style="width:80%;height:80%;display:none;">
+	<br>
+	<div id="container" style="vertical-align:middle;">
+		<!--<img src="images/bulb.jpg" width=400 height=400> -->
+		<textarea id="myTextarea" rows="20" cols="30">
+		</textarea>
+		<script>
+			setInterval(updateAlert, 500);
+		</script>
+		<img id="status" src="images/warning-sign-md.png" height="300" width="250"> </img> 
+	</div>
+
+</section>
+
+<section class="s2">
+	<h2>What is a "smart grid"?</h2>
+		<p class="doubleColumn">
+			According to the <a href="https://www.smartgrid.gov/the_smart_grid/smart_grid.html">U.S. Department of Energy</a>, a
+			"smart grid" is "built from the bottom up to handle the groundswell of digital and 
+			computerized equipment and technology dependent on it—and one that can automate and manage
+			the increasing complexity and needs of electricity in the 21st Century". The USMA Smart 
+			Grid Test Bed (SGTB) models a power distribution system utilizing computer-controlled 
+			metering and distribution allowing for automation and control via a GUI. On the GUI,
+			a technician or	administrator can monitor the power grid in real-time, manipulate theoretical
+			grid metrics in a virtual lab, and analyze its historical data through graphical visualization.
+		</p>
+</section>
+<div class="main-body-content" >
+
+	<table width="50px" style='display:none;'>
+		<tr>
+			<th>Sadie 1</th>
+			<th>Voltage</th>
+			<th>Frequency</th>
+			<th>Current</th>
+			<th>Power factor</th>
+		</tr>
+		<tr>
+			<!-- response data goes here -->
+			<td id="original_Sadie1"></td>
+			<td id="Voltage_Sadie1"></td>
+			<td id="Frequency_Sadie1"></td>
+			<td id="Current_Sadie1"></td>
+			<td id="Power factor_Sadie1"></td>
+		</tr>
+	</table>
+<table width="50px" style='display:none;'>
+	<tr>
+		<th>Sadie 2</th>
+		<th>Voltage</th>
+		<th>Frequency</th>
+		<th>Current</th>
+		<th>Power factor</th>
+	</tr>
+	<tr>
+		<!-- response data goes here -->
+		<td id="Sadie 2"></td>
+		<td id="Voltage_Sadie2">  </td>
+		<td id="Frequency_Sadie2"></td>
+		<td id="Current_Sadie2"></td>
+		<td id="Power factor_Sadie2"></td>
+	</tr>
+</table>
+<table width="50px" style='display:none;'>
+	<tr>
+		<th>Tucker</th>
+		<th>Voltage</th>
+		<th>Frequency</th>
+		<th>Current</th>
+		<th>Power factor</th>
+	</tr>
+	<tr>
+		<!-- response data goes here -->
+		<td id="Tucker"></td>
+		<td id="Voltage_Tucker"></td>
+		<td id="Frequency_Tucker"></td>
+		<td id="Current_Tucker"></td>
+		<td id="Power factor_Tucker"></td>
+	</tr>
+</table>
+<table width="50px" style='display:none;'>
+	<tr>
+		<th>Zeus</th>
+		<th>Voltage</th>
+		<th>Frequency</th>
+		<th>Current</th>
+		<th>Power factor</th>
+	</tr>
+	<tr>
+		<!-- response data goes here -->
+		<td id="Zeus"></td>
+		<td id="Voltage_Zeus"></td>
+		<td id="Frequency_Zeus"></td>
+		<td id="Current_Zeus"></td>
+		<td id="Power factor_Zeus"></td>
+	</tr>
+</table>
+<table width="50px" style='display:none;'>
+	<tr>
+		<th>Duke</th>
+		<th>Voltage</th>
+		<th>Frequency</th>
+		<th>Current</th>
+		<th>Power factor</th>
+	</tr>
+	<tr>
+		<!-- response data goes here -->
+		<td id="Duke"></td>
+		<td id="Voltage_Duke"></td>
+		<td id="Frequency_Duke"></td>
+		<td id="Current_Duke"></td>
+		<td id="Power factor_Duke"></td>
+	</tr>
+</table>
+<table width="50px" style='display:none;'>
+	<tr>
+		<th>Adam</th>
+		<th>Voltage</th>
+		<th>Frequency</th>
+		<th>Current</th>
+		<th>Power factor</th>
+	</tr>
+	<tr>
+		<!-- response data goes here -->
+		<td id="Adam"></td>
+		<td id="Voltage_Adam"></td>
+		<td id="Frequency_Adam"></td>
+		<td id="Current_Adam"></td>
+		<td id="Power factor_Adam"></td>
+	</tr>
+</table>
+<table width="50px" style='display:none;'>
+	<tr>
+		<th>Murphy</th>
+		<th>Voltage</th>
+		<th>Frequency</th>
+		<th>Current</th>
+		<th>Power factor</th>
+	</tr>
+	<tr>
+		<!-- response data goes here -->
+		<td id="Murphy"></td>
+		<td id="Voltage_Murphy"></td>
+		<td id="Frequency_Murphy"></td>
+		<td id="Current_Murphy"></td>
+		<td id="Power factor_Murphy"></td>
+	</tr>
+</table>
+<footer>
+	<p id="foot">In collaboration with:</p>
+	<!--<p>Army Armament, Research, Development, & Engineering Center</p>-->
+	<img class="footImg" src="images/ardec.jpg" alt="U.S. Army ARDEC" width="100" height="100">
+	<!--<p>Army Engineer Research & Development Center</p>-->
+	<img class="footImg" src="images/erdc.jpg" alt="U.S. Army ERDC" width="100" height="100">
+	<!--<p>Army Research Laboratory</p>-->
+	<img class="footImg" src="images/arl.jpg" alt="U.S. ARL" width="100" height="100">
+	<!--<p>National Security Agency</p>-->
+	<img class="footImg" src="images/nsa.png" alt="U.S. NSA" width="100" height="100">
+</footer>
+
+</body>
+</html>
