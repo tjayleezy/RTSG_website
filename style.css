@@ -1,0 +1,405 @@
+/* All programming courtesy of W3 Schools unless otherwise stated */
+/*General Element & Tag Styling*/
+
+
+
+@font-face {
+  font-family: Anson;
+  src: url('../Fonts/anson-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+header {
+	font-size: 44px;
+	color: white;
+	font-family: Anson , sans-serif;
+	border-top: solid;
+	border-bottom: solid;
+	position: sticky;
+}
+
+
+body {
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	max-width: 1500px;
+	margin: auto;
+	border: 6px solid #000000;
+	background-color: #000000;
+	border-color: white;
+}
+
+
+hr {
+	width: 60%;
+	border: 1px solid black;
+}
+
+
+nav {
+	font-size: 22px;
+	width: 100%;
+	background-color: hsl(40, 100%, 75%);
+	border-top: solid;
+	border-bottom: solid;
+	border-color: white;
+	overflow: auto;
+}
+
+
+nav a:link {
+	float: left;
+	padding: 14px;
+	color: black;
+	text-decoration: none;
+	width: 18%; /* Five links of equal widths */
+	text-align: center;
+}
+
+
+nav a:visited {
+	text-decoration: none;
+}
+
+
+nav a:hover {
+	text-decoration: underline;
+}
+
+
+nav a:active {
+	text-decoration: underline;
+}
+
+
+h1 {
+	text-align: center;
+	display: block;
+}
+
+
+h1 img {
+	position: static;
+	vertical-align: middle;
+	width: 150px;
+	height: 150px;
+}
+
+
+h1 img.left {
+	padding-left: 10px;
+}
+
+
+h1 img.right {
+	padding-right: 10px;
+}
+
+
+h2 {
+	font-size: 34px;
+}
+
+
+h3 {
+	font-size: 27;
+}
+
+/*
+canvas {
+	border: solid;
+	width: 1400px;
+	height: 703px;
+	margin: 10px;
+}
+*/
+
+section p {
+	line-height: 1.5;
+	font-size: 20px;
+	padding-left: 200px;
+	padding-right: 200px;
+	padding-bottom: 15px;
+}
+
+
+section.s1 select {
+	margin-top: 30px;
+	background-color: hsl(40, 100%, 75%);
+	color: black;
+	padding: 10px;
+	font-size: 16px;
+	border: solid;
+	cursor: pointer;
+}
+
+
+section.s1 option:hover {
+	background-color: hsl(40, 100%, 65%);
+}
+
+
+section.s2 select {
+	margin: 10px;
+	background-color: hsl(216, 100%, 70%);
+	color: black;
+	padding: 10px;
+	font-size: 16px;
+	border: solid;
+	cursor: pointer;
+}
+
+
+section.s2 option:hover {
+	background-color: hsl(216, 100%, 60%);
+}
+
+
+div img {
+	margin: 10px;
+	border: 3px solid #000000;
+	width: 325px;
+	height: 450px;
+}
+
+
+footer {
+	background-color: hsl(216, 100%, 50%);
+	border-top: solid;
+	border-bottom: solid;
+	display: in-line;
+}
+
+
+
+
+
+/*All Classes*/
+.s1, .s3, .s5, .s7 {
+	background-color: #F5F0F6;
+	border-top: solid;
+	border-bottom: solid;
+	left: 50px;
+
+}
+
+
+.s2, .s4, .s6, .s8 {
+	background-color: hsl(40, 100%, 75%);
+	border-top: solid;
+	border-bottom: solid;
+}
+
+
+.active {
+	background-color: hsl(40, 100%, 65%);
+}
+
+
+.doubleColumn {
+	column-count: 2;
+	column-rule-style: solid;
+	column-rule-width: 3px;
+}
+
+
+.buttons {
+	line-height: 1.75;
+	font-size: 18px;
+	column-count: 4;
+	column-rule-style: solid;
+	column-rule-width: 2px;
+	padding-left: 200px;
+	padding-right: 200px;
+	padding-bottom: 15px;
+}
+
+
+.container {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+}
+
+
+.leftImg {
+	float: left;
+}
+
+
+.leftText {
+	text-align: left;
+	padding: 90px 320px;
+	font-size: 20px;
+}
+
+
+.rightImg {
+	float: right;
+}
+
+
+.rightText {
+	text-align: right;
+	padding: 90px 320px;
+	font-size: 20px;
+}
+
+
+.footImg {
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+
+
+.hide {
+	display: none;
+}
+
+
+
+
+
+/*All IDs*/
+#foot {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+#clearfix {
+	overflow: auto;
+}
+
+/*
+#liveImg {
+	width: 1400px;
+	height: 703px;
+	display: none;
+}
+*/
+
+* {box-sizing: border-box}
+
+
+
+
+
+/* Slideshow container */
+.slideshow-container {
+	max-width: 1500px;
+	height: 700px;
+	position: relative;
+	margin: auto;
+	border-top: solid;
+	border-color: white;
+}
+
+
+/* Hide the images by default */
+.mySlides {
+	display: none;
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+
+/* Position the "previous button" to the left */
+.prev {
+	left: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+
+/* Add a black background color with a little bit see-through */
+.prev, .next, .text, .numbertext {
+	background-color: rgba(0,0,0,0.8);
+}
+
+
+/* Caption text */
+.text {
+	color: #f2f2f2;
+	font-size: 22px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 18px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 4px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+
+/*
+.active, .dot:hover {
+	background-color: #717171;
+}
+*/
+
+
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 4s;
+	animation-name: fade;
+	animation-duration: 4s;
+	}
+
+
+@-webkit-keyframes fade {
+	from {opacity: .2}
+	to {opacity: 1}
+}
+
+
+@keyframes fade {
+	from {opacity: .2}
+	to {opacity: 1}
+}

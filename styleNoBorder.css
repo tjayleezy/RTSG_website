@@ -1,0 +1,112 @@
+
+/*General Styling*/
+
+
+header {
+	font-size: 40px;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	max-width: 1400px;
+	margin: auto;
+	border: 3px solid #000000;
+}
+
+nav {
+	font-size: 16px;
+	width: 100%;
+	background-color: hsl(40, 100%, 75%);
+
+	overflow: auto;
+}
+
+
+li {
+	display: inline;
+	border-right: 2px solid #000000;
+	border-left: 2px solid #000000;
+}
+<!--
+li a {
+	padding: 14px 16px;
+}
+-->
+
+nav a:link {
+	float: left;
+	padding: 14px;
+	color: white;
+	text-decoration: none;
+	font-size: 17px;
+	width: 18%; /* Five links of equal widths */
+	text-align: center;
+}
+
+nav a:visited {
+	text-decoration: none;
+}
+
+nav a:hover {
+	text-decoration: underline;
+}
+
+nav a:active {
+	text-decoration: underline;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+p {
+	line-height: 1.5;
+}
+
+footer {
+	background-color: hsl(216, 100%, 50%);
+
+	display: in-line;
+}
+
+
+
+
+
+/*All Classes*/
+.s1, .s3 {
+	background-color: hsl(216, 100%, 70%);
+
+}
+
+.s2, .s4 {
+	background-color: hsl(40, 100%, 75%);
+
+}
+
+.active {
+	background-color: hsl(40, 100%, 65%);;
+}
+
+.doubleColumn {
+	padding-left: 200px;
+	padding-right: 200px;
+	column-count: 2;
+	column-rule-style: solid;
+	column-rule-width: 3px;
+}
+
+
+
+
+
+/*All IDs*/
+#foot {
+	font-size: 20px;
+}
+
+
+
